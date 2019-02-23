@@ -1,0 +1,21 @@
+version: "2"
+
+services: 
+  app:
+    build: .
+    volumes: 
+      - .:/go/src/github.com/isratmir/itchygo
+    ports: 
+      - 8080:8080
+    depends_on: 
+      - db
+
+  db:
+    image: mysql:5.6
+    ports: 
+      - 3307:3306
+    volumes: 
+      - ./data/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=itchygo
