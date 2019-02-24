@@ -13,7 +13,7 @@ type api struct {
 }
 
 type question struct {
-	Id      int    `db:"id" json:"id"`
+	ID      int    `db:"id" json:"id"`
 	Title   string `db:"title" json:"title"`
 	Content string `db:"content" json:"content"`
 }
